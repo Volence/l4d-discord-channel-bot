@@ -1,6 +1,8 @@
 import {
   botCache,
   cache,
+  createGuildChannel,
+  ChannelCreateOptions,
   editBotsStatus,
   StatusTypes,
   ActivityType,
@@ -26,4 +28,6 @@ botCache.eventHandlers.ready = function () {
   console.log(
     `[READY] Bot is online and ready in ${cache.guilds.size} guild(s)!`
   );
+  // Takes Guild, string, ChannelCreateOptions, which can be found here https://deno.land/x/discordeno@9.4.0/src/types/guild.ts#L477
+  createGuildChannel(cache.guilds.get("788140179248381993"), "Temp Channel", { type: 2, user_limit: 4 })
 };
